@@ -9,21 +9,11 @@ import java.util.List;
 
 public class DataReader {
   public List<HashMap<String,String>> mapJsonData(String filepath) throws IOException {
+    //READ JSON TO STRING
     String jsonContent = FileUtils.readFileToString(new File(System.getProperty(filepath)), StandardCharsets.UTF_8);
     ObjectMapper mapper = new ObjectMapper();
+    //MAP STRING TO LIST OF HASHMAP
     return mapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>() {
     });
-  }
-
-  
-  //USE THIS IN TEST FILE
-  public List getJsonDataToMap(String filePath) throws IOException {
-    //read json to string
-    String jsonContent = FileUtils.readFileToString(new File(filePath), StandardCharsets.UTF_8);
-    //string to hashmap
-    ObjectMapper mapper = new ObjectMapper();
-    List<HashMap<String,String>>data =mapper.readValue(jsonContent, new TypeReference<List<HashMap<String,String>>>() {
-    });
-    return data;
   }
 }
