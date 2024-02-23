@@ -1,2 +1,2 @@
 # CodeSnippets_Selenium
-useful code snippets
+reusable java selenium code snippets
